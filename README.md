@@ -1,7 +1,8 @@
 # Bartender
 CIS 4327 – IS Senior Project I
+
 Model View Controller (MVC) Bartender Application
-Due: August 31								        Individual Activity
+
 The context  for this example is bar patrons ordering a cocktail via an online application and bartender preparing cocktails based on the order queue. In this application, bar patrons (customer users) can perform actions such as: view cocktail menu and place an order for a cocktail drink. Bartender (staff user) should be able to view cocktail order queue and set them for pick up by server after it is prepared.
 
 To implement this online bartender application using MVC pattern, you will need a controller to handle cocktails order related actions (create, edit, and view). You will need a model for handling data and logic related to cocktail orders. You will need views for displaying cocktail menu and order queue.
