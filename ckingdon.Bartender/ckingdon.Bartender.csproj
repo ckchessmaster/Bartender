@@ -143,6 +143,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\styles.css" />
+    <Content Include="Content\Images\Martini.jpeg" />
+    <Content Include="Content\Images\IPA.jpg" />
+    <Content Include="Content\Images\Gin-And-Tonic.jpg" />
+    <Content Include="Content\Images\Mojito.jpg" />
+    <Content Include="Content\Images\Lager.jpg" />
+    <Content Include="Content\Images\Margarita.jpg" />
+    <Content Include="Content\Images\Screwdriver.jpg" />
+    <Content Include="Content\Images\Sex-On-The-Beach.jpg" />
     <Content Include="Content\Images\Whiskey-Sour.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -186,6 +195,7 @@
     <Content Include="Views\Orders\Manage.cshtml" />
     <Content Include="Views\Drinks\Index.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Drinks\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

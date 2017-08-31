@@ -21,6 +21,35 @@ namespace ckingdon.Bartender.Controllers
             return View(db.Drinks.ToList());
         }
 
+        public ActionResult Order(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Drink drink = db.Drinks.Find(id);
+            if (drink == null)
+            {
+                return HttpNotFound();
+            }
+
+            Random rnd = new Random();
+            int PIN = rnd.Next(1, 9999);
+
+            return View(drink);
+        }//end Order
+
+        public ActionResult ConfirmOrder()
+        {
+
+            return RedirectToAction("Index", "Home");
+        }//end ConfirmOrder
+
+        public ActionResult Manage()
+        {
+            return View(db.Drinks.ToList());
+        }
+
         // GET: Drinks/Details/5
         public ActionResult Details(int? id)
         {
