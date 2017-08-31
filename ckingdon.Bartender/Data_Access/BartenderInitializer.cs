@@ -15,7 +15,7 @@ namespace ckingdon.Bartender.Data_Access
             var drinks = new List<Drink>
             {
                 new Drink {Name="Sex on the Beach", Image="" },
-                new Drink {Name="Whiskey Sour", Image="" },
+                new Drink {Name="Whiskey Sour", Image="~/Content/Images/Whiskey-Sour.jpg" },
                 new Drink {Name="Screwdriver", Image="" },
                 new Drink {Name="Margarita", Image="" },
                 new Drink {Name="Martini", Image="" },
