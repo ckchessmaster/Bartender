@@ -5,57 +5,20 @@
 
 @{var drinks = Model.ToArray();}
 
-<table class="text-center drinks" style="margin-left:auto; margin-right:auto; margin-top:20px;">
-    <tr>
-        <td>
-            <img src="@drinks[0].Image" alt="Drink" />
-            <p>@drinks[0].Name</p>
-            <p><div class="btn btn-default">@Html.ActionLink("Select", "Order", new { id = drinks[0].DrinkID })</div></p>
-        </td>
-        <td>
-            <img src="@drinks[1].Image" alt="Drink" />
-            <p>@drinks[1].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-        <td>
-            <img src="@drinks[2].Image" alt="Drink" />
-            <p>@drinks[2].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="@drinks[3].Image" alt="Drink" />
-            <p>@drinks[3].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-        <td>
-            <img src="@drinks[4].Image" alt="Drink" />
-            <p>@drinks[4].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-        <td>
-            <img src="@drinks[5].Image" alt="Drink" />
-            <p>@drinks[5].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <img src="@drinks[6].Image" alt="Drink" />
-            <p>@drinks[6].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-        <td>
-            <img src="@drinks[7].Image" alt="Drink" />
-            <p>@drinks[7].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-        <td>
-            <img src="@drinks[8].Image" alt="Drink" />
-            <p>@drinks[8].Name</p>
-            <p><a class="btn btn-default" href="Drinks/Order">Select</a></p>
-        </td>
-    </tr>
+@{ int count = 0;}
+<table class="drinks">
+    @for(int i=0; i<3; i++)
+    {
+        <tr>
+            @for (int x = 0; x < 3; x++)
+            {
+                <td>
+                    <img src="@drinks[count].Image" alt="@drinks[count].Name" />
+                    <p>@drinks[count].Name</p>
+                    <p><div class="btn btn-default">@Html.ActionLink("Select", "Order", new { id = drinks[count].DrinkID })</div></p>
+                    @{count++;}
+                </td>
+            }@*end column loop*@
+        </tr>
+    }@*end row loop*@
 </table>
-

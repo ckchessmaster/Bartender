@@ -16,5 +16,8 @@ namespace ckingdon.Bartender.Models
         public DateTime TimeOrdered { get; set; }
         public String Customer { get; set; }
         public int CustomerPIN { get; set; }
+
+        public bool isBeingMade { get; set; }
+        public bool isReadyForPickup { get; set; }
     }//end Class Order
 }//end namespace
