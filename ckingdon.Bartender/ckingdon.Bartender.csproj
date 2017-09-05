@@ -196,6 +196,7 @@
     <Content Include="Views\Drinks\Index.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Drinks\Order.cshtml" />
+    <Content Include="Views\Orders\EditOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

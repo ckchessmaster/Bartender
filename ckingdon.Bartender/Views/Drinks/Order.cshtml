@@ -4,7 +4,16 @@
 }
 
 <div class="text-center">
-    <p><div class="btn btn-default">@Html.ActionLink("Confirm", "ConfirmOrder")</div></p>
+    <h2>Your PIN is: @ViewBag.PIN</h2>
+    <p>Use this if you need to edit your order before it's made.</p>
+    <br />
+    <p>Please enter a name for the order</p>
+    @using (Html.BeginForm("Order", "Orders", Model.DrinkID, FormMethod.Post))
+    {
+        @Html.TextBox("Name")
+        <input type="hidden" name="PIN" value="@ViewBag.PIN" />
+        <input type="submit" />
+    }
 </div>
 
 

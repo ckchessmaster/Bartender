@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using ckingdon.Bartender.Data_Access;
 using ckingdon.Bartender.Models;
+using System.Diagnostics;
 
 namespace ckingdon.Bartender.Controllers
 {
@@ -19,6 +20,24 @@ namespace ckingdon.Bartender.Controllers
         public ActionResult Index()
         {
             return View(db.Orders.ToList());
+        }
+
+        public ActionResult EditOrder(string UserPIN)
+        {
+            int pin;
+            if(!int.TryParse(UserPIN, out pin)) {
+                //Fix later to include better error result
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Order order = db.Orders.First(o => o.CustomerPIN == pin);
+            if(order == null)
+            {
+                //Fix later to include better error result
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return View(order);
         }
 
         // GET: Orders/Details/5

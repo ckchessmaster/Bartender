@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ckingdon.Bartender.Data_Access;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace ckingdon.Bartender
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            System.Data.Entity.Database.SetInitializer(new BartenderInitializer());
+            BartenderContext db = new BartenderContext();
+            db.Database.Initialize(true);
         }
     }
 }

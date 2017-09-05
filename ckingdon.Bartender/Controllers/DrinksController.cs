@@ -27,6 +27,7 @@ namespace ckingdon.Bartender.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Drink drink = db.Drinks.Find(id);
             if (drink == null)
             {
@@ -34,16 +35,48 @@ namespace ckingdon.Bartender.Controllers
             }
 
             Random rnd = new Random();
-            int PIN = rnd.Next(1, 9999);
+            int pin = rnd.Next(1, 9999);
 
+            while(db.Orders.FirstOrDefault(o => o.CustomerPIN == pin) != null)
+            {
+                pin = rnd.Next(1, 9999);
+            }
+
+            ViewBag.PIN = pin;
             return View(drink);
         }//end Order
 
-        public ActionResult ConfirmOrder()
+        [HttpPost]
+        public ActionResult Order(string Name, string PIN, int DrinkID)
         {
+            Drink drink = db.Drinks.Find(DrinkID);
+            if (drink == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Order order = new Order();
+            order.Drink = drink;
+            order.Customer = Name;
+            order.CustomerPIN = int.Parse(PIN);
+            order.isBeingMade = false;
+            order.isReadyForPickup = false;
+
+            db.Orders.Add(order);
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult ConfirmOrder()
+        {
+            return RedirectToAction("Index", "Home");
         }//end ConfirmOrder
+
+        [HttpPost]
+        public ActionResult EditOrder(string UserPIN)
+        {
+            return RedirectToAction("EditOrder", "Orders", 1);
+        }
 
         public ActionResult Manage()
         {

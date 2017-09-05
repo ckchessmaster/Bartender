@@ -5,6 +5,7 @@
 
 @{var drinks = Model.ToArray();}
 
+<h1 class="drinks">Choose your drink</h1>
 @{ int count = 0;}
 <table class="drinks">
     @for(int i=0; i<3; i++)
@@ -22,3 +23,15 @@
         </tr>
     }@*end row loop*@
 </table>
+
+<h1 class="middle">Or</h1>
+<h1 style="text-align:center; margin-top:2%;">Edit your order</h1>
+<div class="side">
+    
+    
+    @using(Html.BeginForm("EditOrder","Orders", FormMethod.Post))
+    {
+        @Html.TextBox("UserPIN")
+        <input type="submit" />
+    }
+</div>

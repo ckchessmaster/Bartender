@@ -1,8 +1,30 @@
-﻿.drinks {
+﻿.side {
     text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:20px;
+    margin-top:21%;
+    float:left;
+    width:48%;
+}
+
+.middle {
+    text-align:center;
+    margin-top:23%;
+    float:left;
+    width:1%;
+}
+
+.largeTextBox {
+    text-align:center; 
+    margin-left:auto; 
+    margin-right:auto; 
+    width:10px;
+}
+
+.drinks {
+    text-align:center;
+    margin-right:2%;
+    margin-top:2%;
+    float:left;
+    width:49%;
 }
 
 .drinks td {
@@ -13,3 +35,4 @@
     width:100px;
     height:100px;
 }
+
