@@ -47,16 +47,22 @@ namespace ckingdon.Bartender.Controllers
         }//end Order
 
         [HttpPost]
-        public ActionResult Order(string Name, string PIN, int DrinkID)
+        public ActionResult Order(string Name, string PIN, string ID)
         {
-            Drink drink = db.Drinks.Find(DrinkID);
+            int drinkID;
+            if(!int.TryParse(ID, out drinkID))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Drink drink = db.Drinks.Find(drinkID);
             if (drink == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             Order order = new Order();
-            order.Drink = drink;
+            order.Drink = drink;//This may be a problem
             order.Customer = Name;
             order.CustomerPIN = int.Parse(PIN);
             order.isBeingMade = false;
