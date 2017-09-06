@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -13,7 +14,9 @@ namespace ckingdon.Bartender.Models
         //Foreign Key
         public virtual Drink Drink { get; set; }
 
+        [Column(TypeName = "DateTime2")]
         public DateTime TimeOrdered { get; set; }
+
         public String Customer { get; set; }
         public int CustomerPIN { get; set; }
 

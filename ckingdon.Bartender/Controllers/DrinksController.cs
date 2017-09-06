@@ -69,6 +69,7 @@ namespace ckingdon.Bartender.Controllers
             order.isReadyForPickup = false;
 
             db.Orders.Add(order);
+            db.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }
