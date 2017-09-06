@@ -62,11 +62,12 @@ namespace ckingdon.Bartender.Controllers
             }
 
             Order order = new Order();
-            order.Drink = drink;//This may be a problem
+            order.Drink = drink;
             order.Customer = Name;
             order.CustomerPIN = int.Parse(PIN);
             order.isBeingMade = false;
             order.isReadyForPickup = false;
+            order.TimeOrdered = DateTime.Now;
 
             db.Orders.Add(order);
             db.SaveChanges();
