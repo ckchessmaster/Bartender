@@ -22,6 +22,25 @@ namespace ckingdon.Bartender.Controllers
             return View(db.Orders.ToList());
         }
 
+        public ActionResult Complete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Order order = db.Orders.Find(id);
+            if(order == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            db.Orders.Remove(order);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Orders");
+        }
+
         public ActionResult EditOrder(string UserPIN)
         {
             int pin;

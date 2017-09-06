@@ -1,7 +1,23 @@
-﻿@model ckingdon.Bartender.Models.Order
+﻿@model IEnumerable<ckingdon.Bartender.Models.Order>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Under Construction</h2>
-
+<h2>Waiting Orders</h2>
+<table>
+    <tr>
+        <th><strong>Drink</strong></th>
+        <th><strong>Customer</strong></th>
+        <th><strong>TimeOrdered</strong></th>
+    </tr>
+@using ckingdon.Bartender.Models;
+@foreach (Order order in Model)
+{
+    <tr>
+        <td>@order.Drink.Name</td>
+        <td>@order.Customer</td>
+        <td>@order.TimeOrdered</td>
+        <td>@Html.ActionLink("Complete", "Complete", new { id = order.OrderID})</td>
+    </tr>
+}
+</table>
